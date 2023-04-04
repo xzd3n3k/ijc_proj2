@@ -40,6 +40,8 @@ BUFFER * cb_create(int n) {
 void cb_put(BUFFER *cb, char *line) {
     strcpy((cb->lines)[cb->end++], line);
     cb->end %= cb->buf;
+    cb->start++;
+    cb->start %= cb->buf;
 }
 
 char *cb_get(BUFFER *cb) {
